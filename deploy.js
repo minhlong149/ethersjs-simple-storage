@@ -10,18 +10,18 @@ async function main() {
 
   // A Signer in ethers is an abstraction of an Ethereum Account
   // The most common Signers you will encounter is Wallet
-  // const privateKey = process.env.PRIVATE_KEY;
-  // const wallet = new ethers.Wallet(privateKey, provider);
+  const privateKey = process.env.PRIVATE_KEY;
+  const wallet = new ethers.Wallet(privateKey, provider);
 
   // Encrypt the wallet using password
   // returning a Promise which resolves to a JSON wallet.
-  const encryptedPassword = process.env.ENCRYPTED_PASSWORD;
-  const encryptedJsonKey = fs.readFileSync("./.encryptedKey.json", "utf-8");
-  let wallet = new ethers.Wallet.fromEncryptedJsonSync(
-    encryptedJsonKey,
-    encryptedPassword
-  );
-  wallet = await wallet.connect(provider);
+  // const encryptedPassword = process.env.ENCRYPTED_PASSWORD;
+  // const encryptedJsonKey = fs.readFileSync("./.encryptedKey.json", "utf-8");
+  // let wallet = new ethers.Wallet.fromEncryptedJsonSync(
+  //   encryptedJsonKey,
+  //   encryptedPassword
+  // );
+  // wallet = await wallet.connect(provider);
 
   // To deploy a Contract, additional information is needed that is not available on a Contract object itself.
   const abi = fs.readFileSync("./SimpleStorage_sol_SimpleStorage.abi", "utf-8");
